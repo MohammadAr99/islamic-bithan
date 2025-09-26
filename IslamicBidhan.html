@@ -1,0 +1,301 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+<title>Islamic Bidhan</title>
+<style type="text/css">
+*{
+
+}
+body{
+ background-color: wheat;
+}
+.Main_Container{
+ background-color: wheat;
+ 
+}
+
+.Items{
+ background-color: white;
+ color: black;
+ height: 75px;
+ width: 80%;
+ display: block;
+ border: none;
+ border-radius: 3px;
+ box-shadow: 1px 1px 3px black;
+ margin-top: 50px;
+ margin-left: 10%;
+ font-size: 18px;
+ font-weight: bold;
+
+}
+.Items:hover{
+ background-color: steelblue;
+ color: whitesmoke;
+ transition: 0.3s;
+ 
+}
+
+</style>
+</head>
+<body>
+
+<div class="Main_Container">
+  <button class="Items">Kalima</button>
+  <button class="Items">Namaj</button>
+  <button class="Items">Roja</button>
+  <button class="Items">Hajj</button>
+  <button class="Items">Jakat</button>
+</div>
+
+<script>
+
+
+</script>
+
+</body>
+</html>
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Islamic Bidhan</title>
+  <style>
+ /*-----------------------
+    Animation Work Start
+  ------------------------*/
+ 
+  body {
+    background-color: black;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  }
+  .Header{
+   width:100%;
+   height: 60px;
+   background-color: skyblue;
+   position: fixed;
+   margin: 0;
+   padding: 0;
+   top: 0;
+   left: 0;
+   display: none;
+   
+  }
+  
+  .Animation_Container {
+    width:100px;
+    height:40px;
+    position:relative;
+    isolation: isolate;
+    margin-top: 80%; 
+    margin-left: 40%; 
+    
+  }
+  
+  .ball {
+    position:absolute;
+    top:6px;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    mix-blend-mode: lighten; 
+    filter: brightness(150%);
+    animation: ballAnim 1s linear infinite;
+  }
+  .ball:nth-child(1) { background: blue; left:0; animation-delay: 0s; }
+  .ball:nth-child(2) { background: purple; left:0; animation-delay: -0.5s; }
+  .ball:nth-child(3) { background: brown; left:calc(100% - 28px); animation-delay: -0.25s; }
+  .ball:nth-child(4) { background: darkgreen; left:calc(100% - 28px); animation-delay: -0.75s; }
+  
+  @keyframes ballAnim {
+    0%,100% {
+     left:0; 
+     top:6px; 
+     width:20px; 
+     height:20px; 
+     }
+    25% { 
+    left:calc(50% - 14px); 
+    top:0; 
+    width:10px; 
+    height:10px; 
+    z-index:1; 
+    
+    }
+    50% { left:calc(100% - 28px); top:6px; width:15px; height:15px; }
+    75% { left:calc(50% - 14px); top:12px; width:10px; height:10px; }
+  }
+  
+ /*----------Animation Work End------------*/
+
+    .Main_Container {
+      background-color: wheat;
+      transition: height 0.3s ease;
+      overflow: hidden;
+      padding-bottom: 20px;
+      display: none;
+      margin-top: 65px;
+      
+    }
+
+    .Items {
+      background-color: white;
+      color: black;
+      height: 75px;
+      width: 80%;
+      display: block;
+      margin: 40px auto;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 1px 1px 3px black;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .Items:hover {
+      background-color: steelblue;
+      color: whitesmoke;
+    }
+
+    #display {
+      display: none; /* শুরুতে হাইড থাকবে */
+      width: 80%;
+      margin: 20px auto;
+      margin-top: 95px;
+      background: white;
+      padding: 15px;
+      border-radius: 4px;
+      box-shadow: 1px 1px 3px gray;
+      animation: fadeIn 0.3s ease;
+      
+    }
+
+    #display h2 {
+      margin-top: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    #backBtn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background: steelblue;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #backBtn:hover {
+      background: darkblue;
+    }
+    .TextLoad{
+     color: grey;
+     position: relative;
+     top: 50px;
+    
+    }
+    
+  </style>
+</head>
+<body class="Body">
+
+<header>
+  <div class="Header">Menu</div>
+</header>
+
+<div class="Animation_Container">
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <span class="TextLoad">Please Wait...</span>
+ </div>
+  
+  <div class="Main_Container" id="buttonContainer">
+    <!-- বাটনগুলো JavaScript দিয়ে আসবে -->
+  </div>
+
+  <div id="display">
+    <h2 id="headline"></h2>
+    <p id="description"></p>
+    <button id="backBtn">Back</button>
+  </div>
+
+  <script>
+  const items = [
+  { id: 1, title: "Kalima", headline: "কলিমা‑এর বিস্তারিত", description: "কলিমা‑এর অর্থ ও গুরুত্ব এখানে।" },
+  { id: 2, title: "Namaj", headline: "নামাজ‑এর নিয়ম", description: "নামাজ পড়ার সঠিক সময় ও রাকাত।" },
+  { id: 3, title: "Roja", headline: "রোজার নিয়ম", description: "রোজা ধরা ও মূল নিয়মাবলী।" },
+  { id: 4, title: "Hajj", headline: "হজ্জ‑এর বিস্তারিত", description: "হজ্জ পালনের ফরমা এবং বিধান।" },
+  { id: 5, title: "Zakat", headline: "জাকাত‑এর বিধান", description: "জাকাত দেওয়ার শর্ত ও পরিমাণ।" },
+  { id: 6, title: "Quran", headline: "জাকাত‑এর বিধান", description: "জাকাত দেওয়ার শর্ত ও পরিমাণ।" },
+  { id: 7, title: "Hadis", headline: "জাকাত‑এর বিধান", description: "জাকাত দেওয়ার শর্ত ও পরিমাণ।" },
+  { id: 8, title: "Azma", headline: "জাকাত‑এর বিধান", description: "জাকাত দেওয়ার শর্ত ও পরিমাণ।" },
+  { id: 9, title: "Keyas", headline: "জাকাত‑এর বিধান", description: "জাকাত দেওয়ার শর্ত ও পরিমাণ।" },
+  
+  ];
+  
+  const btnContainer = document.getElementById('buttonContainer');
+  const display = document.getElementById('display');
+  const headline = document.getElementById('headline');
+  const description = document.getElementById('description');
+  
+  items.forEach(item => {
+  const btn = document.createElement('button');
+        btn.textContent = item.title;
+        btn.className = 'Items';
+        btn.addEventListener('click', () => {
+  // বাটন কন্টেইনার হাইড করে দিচ্ছি
+        btnContainer.style.display = 'none';
+  
+  // Headline ও Description আপডেট
+  headline.textContent = item.headline;
+  description.textContent = item.description;
+  
+  // display ডিভ দেখানো
+  display.style.display = 'block';
+  btnContainer.style.paddingBottom = ''; // আগের অতিরিক্ত প্যাডিং রিসেট
+  });
+  btnContainer.appendChild(btn);
+  });
+  
+  
+  // Back বাটনের ক্লিক ইভেন্ট
+  backBtn.addEventListener('click', () => {
+    // display লুকান
+    display.style.display = 'none';
+    // বাটন কন্টেইনার ফিরিয়ে আনুন
+    btnContainer.style.display = 'block';
+  });
+  
+  
+  
+/*-------------------------
+  System Loader Animation
+ -------------------------*/
+  setTimeout(() => {
+   document.querySelector('.Animation_Container').style.display = 'none';
+   document.querySelector('.Main_Container').style.display = 'block';
+   document.querySelector('.Header').style.display = 'block';
+   document.querySelector('.Body').style.backgroundColor="wheat";
+  }, 3000);
+  
+  
+  
+  </script>
+  
+</body>
+</html>
